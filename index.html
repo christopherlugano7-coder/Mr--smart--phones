@@ -1,213 +1,573 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MR SMART PHONES | Zanzibar</title>
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f8fc;color:#10233d}.top{background:#061426;color:#fff;padding:10px 5%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:14px}.header{background:#071a31;color:#fff;padding:18px 5%;display:flex;align-items:center;gap:25px;flex-wrap:wrap}.logo{font-size:32px;font-weight:900}.logo span{color:#ffd400}.search{flex:1;min-width:220px;padding:14px 18px;border-radius:10px;border:0;font-size:15px}.whatsapp{background:#16c65b;color:white;padding:13px 18px;border-radius:10px;font-weight:bold;text-decoration:none}.nav{background:#066bea;color:white;padding:13px 5%;display:flex;gap:30px;flex-wrap:wrap;font-weight:bold}.nav a{color:#fff;text-decoration:none}.hero{background:linear-gradient(120deg,#031224,#006be8);color:white;padding:55px 6%;display:flex;align-items:center;justify-content:space-between;gap:30px}.hero h1{font-size:48px;margin:0 0 12px}.hero h1 span{color:#ffd400}.hero p{font-size:20px;max-width:600px}.cta{display:inline-block;background:#ffd400;color:#071a31;padding:15px 24px;border-radius:10px;font-weight:900;text-decoration:none}.container{max-width:1200px;margin:auto;padding:25px 18px}.brands{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.brand{background:white;padding:22px;text-align:center;border-radius:12px;box-shadow:0 2px 10px #dbe5f0;font-weight:bold}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border-radius:14px;padding:15px;box-shadow:0 3px 15px #d9e3ef}.phone-img{width:100%;height:280px;object-fit:contain;background:#f4f8fd;border-radius:10px;display:block}.price{font-size:20px;font-weight:900;color:#0670df}.order{display:block;text-align:center;background:#12b956;color:#fff;padding:12px;border-radius:9px;text-decoration:none;font-weight:bold;margin-top:10px}.features{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:25px}.feature{background:#eaf3ff;padding:18px;border-radius:12px;font-weight:bold}.contact{margin-top:25px;background:#071a31;color:white;padding:25px;border-radius:15px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.contact strong{font-size:28px;color:#ffd400}footer{background:#061426;color:white;padding:35px 6%;margin-top:30px}@media(max-width:800px){.hero h1{font-size:36px}.products{grid-template-columns:repeat(2,1fr)}.brands,.features{grid-template-columns:repeat(2,1fr)}}@media(max-width:500px){.products{grid-template-columns:1fr}.brands,.features{grid-template-columns:1fr}.logo{font-size:25px}}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.cartbar{position:fixed;right:18px;bottom:18px;z-index:50;background:#071a31;color:#fff;padding:14px 18px;border-radius:14px;box-shadow:0 8px 25px #0004;display:flex;gap:12px;align-items:center}
-.cartbar button{background:#ffd400;color:#071a31;border:0;border-radius:9px;padding:10px 14px;font-weight:900;cursor:pointer}
-.addcart{display:block;width:100%;border:0;background:#066bea;color:#fff;padding:11px;border-radius:9px;font-weight:bold;margin-top:8px;cursor:pointer}
-.modal{display:none;position:fixed;inset:0;background:#0008;z-index:100;align-items:center;justify-content:center;padding:18px}
-.modalbox{background:#fff;max-width:600px;width:100%;max-height:85vh;overflow:auto;border-radius:16px;padding:22px}
-.cartitem{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #e5e7eb}
-.cart-actions{display:flex;gap:10px;margin-top:18px}
-.cart-actions button,.cart-actions a{flex:1;padding:12px;border:0;border-radius:9px;font-weight:bold;text-align:center;text-decoration:none;cursor:pointer}
-.closebtn{background:#e5e7eb}.sendbtn{background:#12b956;color:#fff}
+  <title>MR SMART PHONES | Zanzibar</title>
 
-.checkout-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.checkout-grid input,.checkout-grid select{width:100%;padding:13px;border:1px solid #d6dbe3;border-radius:9px;margin:7px 0 14px;font-size:15px}
-.checkout-full{grid-column:1/-1}
-.paybox{background:#f5f8fc;border-radius:12px;padding:14px;margin-top:8px}
-.checkout-submit{width:100%;padding:14px;border:0;border-radius:10px;background:#12b956;color:white;font-weight:900;font-size:16px;cursor:pointer}
-@media(max-width:650px){.checkout-grid{grid-template-columns:1fr}.checkout-full{grid-column:auto}}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.checkout-btn{display:block;width:100%;margin-top:10px;padding:12px;border:0;border-radius:10px;background:#111827;color:#fff;font-weight:800;cursor:pointer}
-.checkout-form{display:grid;gap:12px;margin-top:16px}
-.checkout-form input,.checkout-form select{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:9px;font-size:15px}
-.checkout-note{background:#f3f4f6;padding:12px;border-radius:10px;font-size:14px}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7fb;
+      color: #10233d;
+    }
 
-.product-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:200;align-items:center;justify-content:center;padding:16px}
-.product-modal-box{background:#fff;width:min(760px,100%);max-height:92vh;overflow:auto;border-radius:18px;padding:18px;position:relative}
-.product-modal-box img{width:100%;max-height:420px;object-fit:contain;border-radius:14px;background:#f5f5f5}
-.product-modal-close{position:absolute;right:14px;top:12px;border:0;border-radius:50%;width:40px;height:40px;font-size:22px;cursor:pointer}
-.product-detail-btn{width:100%;margin-top:9px;padding:11px;border:0;border-radius:9px;background:#eef2ff;color:#172554;font-weight:800;cursor:pointer}
-.product-modal-price{font-size:24px;font-weight:900;margin:10px 0}.notice{background:#fff8d8;border:1px solid #f2d56b;padding:13px 15px;border-radius:12px;margin:12px 0 20px;color:#5b4a00}
-</style>
-<style>.brand{border:0;cursor:pointer;color:#10233d;font-size:16px}.brand:hover{transform:translateY(-2px);background:#eaf3ff}.card{transition:.2s}.hidden{display:none!important}
-.cartbar{position:fixed;right:18px;bottom:18px;z-index:50;background:#071a31;color:#fff;padding:14px 18px;border-radius:14px;box-shadow:0 8px 25px #0004;display:flex;gap:12px;align-items:center}
-.cartbar button{background:#ffd400;color:#071a31;border:0;border-radius:9px;padding:10px 14px;font-weight:900;cursor:pointer}
-.addcart{display:block;width:100%;border:0;background:#066bea;color:#fff;padding:11px;border-radius:9px;font-weight:bold;margin-top:8px;cursor:pointer}
-.modal{display:none;position:fixed;inset:0;background:#0008;z-index:100;align-items:center;justify-content:center;padding:18px}
-.modalbox{background:#fff;max-width:600px;width:100%;max-height:85vh;overflow:auto;border-radius:16px;padding:22px}
-.cartitem{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #e5e7eb}
-.cart-actions{display:flex;gap:10px;margin-top:18px}
-.cart-actions button,.cart-actions a{flex:1;padding:12px;border:0;border-radius:9px;font-weight:bold;text-align:center;text-decoration:none;cursor:pointer}
-.closebtn{background:#e5e7eb}.sendbtn{background:#12b956;color:#fff}
+    /* TOP BAR */
+    .topbar {
+      background: #071426;
+      color: white;
+      padding: 10px 5%;
+      text-align: center;
+      font-size: 14px;
+    }
 
-.checkout-btn{display:block;width:100%;margin-top:10px;padding:12px;border:0;border-radius:10px;background:#111827;color:#fff;font-weight:800;cursor:pointer}
-.checkout-form{display:grid;gap:12px;margin-top:16px}
-.checkout-form input,.checkout-form select{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:9px;font-size:15px}
-.checkout-note{background:#f3f4f6;padding:12px;border-radius:10px;font-size:14px}
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #071426, #0d315a);
+      color: white;
+      padding: 25px 5%;
+      text-align: center;
+    }
 
-.product-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:200;align-items:center;justify-content:center;padding:16px}
-.product-modal-box{background:#fff;width:min(760px,100%);max-height:92vh;overflow:auto;border-radius:18px;padding:18px;position:relative}
-.product-modal-box img{width:100%;max-height:420px;object-fit:contain;border-radius:14px;background:#f5f5f5}
-.product-modal-close{position:absolute;right:14px;top:12px;border:0;border-radius:50%;width:40px;height:40px;font-size:22px;cursor:pointer}
-.product-detail-btn{width:100%;margin-top:9px;padding:11px;border:0;border-radius:9px;background:#eef2ff;color:#172554;font-weight:800;cursor:pointer}
-.product-modal-price{font-size:24px;font-weight:900;margin:10px 0}.notice{background:#fff8d8;border:1px solid #f2d56b;padding:13px 15px;border-radius:12px;margin:12px 0 20px;color:#5b4a00}
-</style></head>
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #19c37d;
+    }
+
+    header p {
+      margin-top: 8px;
+      color: #dbe8f7;
+      font-size: 15px;
+    }
+
+    /* NAVIGATION */
+    nav {
+      background: white;
+      padding: 13px 5%;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #10233d;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #19a974;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 55px 5%;
+      text-align: center;
+      background:
+        linear-gradient(rgba(7,20,38,.88), rgba(7,20,38,.88)),
+        url("https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #19c37d;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.7;
+      color: #e3edf8;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      margin-top: 25px;
+      background: #19c37d;
+      color: white;
+      padding: 13px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 45px 5%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      color: #071426;
+    }
+
+    .section-title p {
+      margin-top: 8px;
+      color: #64748b;
+    }
+
+    /* PRODUCTS */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      transition: .3s;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,.13);
+    }
+
+    .product-img {
+      height: 260px;
+      background: #f7f9fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .spec {
+      color: #64748b;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      color: #0c9b63;
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
+
+    .buy-btn {
+      display: block;
+      text-align: center;
+      background: #19c37d;
+      color: white;
+      padding: 11px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .buy-btn:hover {
+      background: #119a61;
+    }
+
+    /* SERVICES */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 5px 18px rgba(0,0,0,.06);
+    }
+
+    .service-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .service h3 {
+      margin-bottom: 8px;
+    }
+
+    .service p {
+      color: #64748b;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #071426;
+      color: white;
+      padding: 45px 5%;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      margin: 8px 0;
+      color: #d9e5f2;
+    }
+
+    .whatsapp {
+      display: inline-block;
+      margin-top: 20px;
+      background: #25D366;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #030b16;
+      color: #9fb0c2;
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .hero {
+        padding: 45px 20px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product-img {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
 <body>
-<div class="top"><span>📍 Zanzibar, Unguja • Kaliyakoo, Michezani Hall</span><span>🕒 3:00 Asubuhi – 3:00 Usiku</span><span>📞 0782895074 | 0775803024</span></div>
-<header class="header"><div class="logo">MR <span>SMART PHONES</span></div><input id="searchBox" class="search" placeholder="🔎 Tafuta simu, mfano au brand..." oninput="filterPhones()"><a class="whatsapp" href="https://wa.me/255782895074">💬 WhatsApp</a></header>
-<nav class="nav"><a href="#">Nyumbani</a><a href="#phones">Simu Zote</a><a href="#brands">Brands</a><a href="#offers">🔥 Ofa Maalum</a><a href="#about">Kuhusu Sisi</a><a href="#contact">Mawasiliano</a></nav>
-<section class="hero"><div><h1>MR <span>SMART PHONES</span></h1><p>Simu Mpya • Bei Bora • Ubora wa Hakika</p><p>Pata simu za kisasa kutoka kwa brands bora duniani kwa bei nafuu na huduma bora.</p><a class="cta" href="https://wa.me/255782895074">ORDER SASA →</a></div><div style="font-size:90px">📱</div></section>
-<main class="container"><h2 id="brands">New Brands 🔥</h2><p style="font-size:13px;color:#64748b">Chagua brand unayotaka kuona.</p><div class="brands"><button class="brand" onclick="setBrand('')">📱 Zote</button><button class="brand" onclick="setBrand('iPhone')">🍎 iPhone</button><button class="brand" onclick="setBrand('Samsung')">Samsung</button><button class="brand" onclick="setBrand('Infinix')">Infinix</button><button class="brand" onclick="setBrand('Tecno')">Tecno</button><button class="brand" onclick="setBrand('Xiaomi')">Xiaomi</button><button class="brand" onclick="setBrand('Redmi')">Redmi</button><button class="brand" onclick="setBrand('Oppo')">Oppo</button><button class="brand" onclick="setBrand('Vivo')">Vivo</button><button class="brand" onclick="setBrand('Honor')">Honor</button><button class="brand" onclick="setBrand('Google')">Google Pixel</button><button class="brand" onclick="setBrand('OnePlus')">OnePlus</button><button class="brand" onclick="setBrand('Realme')">Realme</button><button class="brand" onclick="setBrand('Motorola')">Motorola</button><button class="brand" onclick="setBrand('Nothing')">Nothing</button><button class="brand" onclick="setBrand('Huawei')">Huawei</button><button class="brand" onclick="setBrand('Nokia')">Nokia</button></div><div id="filterStatus" style="margin:15px 0;color:#475569;font-weight:bold"></div>
-<h2 id="phones">📱 Simu Mpya za Kisasa</h2><p style="font-size:13px;color:#64748b">Sasa kila simu ina picha yake ndani ya website, hivyo itaonekana bila kutegemea picha za Google au links za nje.</p><div class="notice">💡 <b>Bei zilizoonyeshwa ni bei za mfano kwa sasa.</b> Thibitisha stock, storage, rangi na bei ya siku kupitia WhatsApp kabla ya malipo.</div><div class="products"><div class="card" data-brand="iPhone" data-name="iPhone 17 Pro Max"><img class="phone-img" src="images/phone_1.png" alt="iPhone 17 Pro Max" loading="lazy"><h3>iPhone 17 Pro Max</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 3,250,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20iPhone%2017%20Pro%20Max">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div><div class="card" data-brand="Samsung" data-name="Samsung Galaxy S26 Ultra"><img class="phone-img" src="images/phone_2.png" alt="Samsung Galaxy S26 Ultra" loading="lazy"><h3>Samsung Galaxy S26 Ultra</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 3,650,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20Samsung%20Galaxy%20S26%20Ultra">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div><div class="card" data-brand="iPhone" data-name="iPhone 16 Pro Max"><img class="phone-img" src="images/phone_3.png" alt="iPhone 16 Pro Max" loading="lazy"><h3>iPhone 16 Pro Max</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 2,850,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20iPhone%2016%20Pro%20Max">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div><div class="card" data-brand="Samsung" data-name="Samsung Galaxy S25 Ultra"><img class="phone-img" src="images/phone_4.png" alt="Samsung Galaxy S25 Ultra" loading="lazy"><h3>Samsung Galaxy S25 Ultra</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 2,950,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20Samsung%20Galaxy%20S25%20Ultra">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div><div class="card" data-brand="Infinix" data-name="Infinix Note 50 Pro+"><img class="phone-img" src="images/phone_5.png" alt="Infinix Note 50 Pro+" loading="lazy"><h3>Infinix Note 50 Pro+</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 1,050,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20Infinix%20Note%2050%20Pro+">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div><div class="card" data-brand="Tecno" data-name="Tecno Camon 40 Pro"><img class="phone-img" src="images/phone_6.png" alt="Tecno Camon 40 Pro" loading="lazy"><h3>Tecno Camon 40 Pro</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 950,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20Tecno%20Camon%2040%20Pro">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div><div class="card" data-brand="Xiaomi" data-name="Xiaomi Redmi Note 14 Pro"><img class="phone-img" src="images/phone_7.png" alt="Xiaomi Redmi Note 14 Pro" loading="lazy"><h3>Xiaomi Redmi Note 14 Pro</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 850,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20Xiaomi%20Redmi%20Note%2014%20Pro">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div><div class="card" data-brand="Samsung" data-name="Samsung Galaxy A16"><img class="phone-img" src="images/phone_8.png" alt="Samsung Galaxy A16" loading="lazy"><h3>Samsung Galaxy A16</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 550,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20Samsung%20Galaxy%20A16">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div><div class="card" data-brand="Oppo" data-name="Oppo Reno 13"><img class="phone-img" src="images/phone_9.png" alt="Oppo Reno 13" loading="lazy"><h3>Oppo Reno 13</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 1,250,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20Oppo%20Reno%2013">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div><div class="card" data-brand="Vivo" data-name="Vivo V40"><img class="phone-img" src="images/phone_10.png" alt="Vivo V40" loading="lazy"><h3>Vivo V40</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 1,350,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20Vivo%20V40">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div><div class="card" data-brand="Redmi" data-name="Redmi Note 14"><img class="phone-img" src="images/phone_11.png" alt="Redmi Note 14" loading="lazy"><h3>Redmi Note 14</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 650,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20Redmi%20Note%2014">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div><div class="card" data-brand="Infinix" data-name="Infinix Hot 50 Pro"><img class="phone-img" src="images/phone_12.png" alt="Infinix Hot 50 Pro" loading="lazy"><h3>Infinix Hot 50 Pro</h3><p>Mpya • Original • Warranty</p><div class="price">TSh 700,000</div><a class="order" target="_blank" href="https://wa.me/255782895074?text=Habari%20MR%20SMART%20PHONES,%20nahitaji%20Infinix%20Hot%2050%20Pro">💬 Order WhatsApp</a><button class="addcart" onclick="addToCart(this)">🛒 Ongeza kwenye Cart</button><button class="product-detail-btn" onclick="openProductDetails(this)">👀 Tazama Maelezo</button></div></div><div class="features"><div class="feature">🛡️ Bidhaa Halisi<br><small>100% Original</small></div><div class="feature">🏪 Nunua Dukani<br><small>Mteja anakuja mwenyewe</small></div><div class="feature">💳 Malipo Rahisi<br><small>YAS: 16559143 • Airtel: 140001096</small></div><div class="feature">🎧 Huduma kwa Wateja<br><small>0782895074 / 0775803024</small></div></div>
-<section class="contact" id="contact"><div><h2>📲 Piga Simu au Tuma WhatsApp</h2><strong>0782895074</strong><br><strong>0775803024</strong><p>📍 Zanzibar, Unguja — Kaliyakoo, Michezani Hall<br>🕒 3:00 Asubuhi hadi 3:00 Usiku<br>🚫 Hatusafirishi mzigo mikoani; mteja anakuja mwenyewe.</p></div><a class="whatsapp" href="https://wa.me/255782895074">WHATSAPP SASA</a></section></main>
-<footer id="about"><h2>MR SMART PHONES</h2><p>Quality Phones • Best Prices • Your Satisfaction</p><p>💳 YAS Lipa Namba <b>16559143</b> — Christopher Lugano<br>Airtel Lipa Namba <b>140001096</b> — Christopher Lugano</p><p>© 2026 MR Smart Phones. Haki zote zimehifadhiwa.</p></footer>
-<script>let selectedBrand="";function setBrand(brand){selectedBrand=brand;document.getElementById("searchBox").value="";filterPhones()}function filterPhones(){const q=document.getElementById("searchBox").value.toLowerCase().trim();let shown=0;document.querySelectorAll(".products .card").forEach(card=>{const name=(card.dataset.name||"").toLowerCase();const brand=(card.dataset.brand||"").toLowerCase();const ok=(!selectedBrand||brand===selectedBrand.toLowerCase())&&(!q||name.includes(q)||brand.includes(q));card.classList.toggle("hidden",!ok);if(ok)shown++});document.getElementById("filterStatus").textContent=(selectedBrand||q)?("Inaonyesha "+shown+" ya simu 12"+(selectedBrand?" • Brand: "+selectedBrand:"")) : "Simu zote 7 zinaonyeshwa"}</script>
-<div class="cartbar">🛒 <span id="cartCount">0</span> bidhaa <button onclick="openCart()">ANGALIA CART</button></div>
 
-
-<div class="product-modal" id="productModal" onclick="if(event.target===this)closeProductDetails()">
-  <div class="product-modal-box">
-    <button class="product-modal-close" onclick="closeProductDetails()">×</button>
-    <img id="detailImage" src="" alt="Simu">
-    <h2 id="detailName"></h2>
-    <div class="product-modal-price" id="detailPrice"></div>
-    <p id="detailInfo">📱 Mpya • Original • Warranty</p>
-    <button class="addcart" id="detailAddCart">🛒 Ongeza kwenye Cart</button>
-    <a id="detailWhatsApp" class="order" target="_blank" style="display:block;text-align:center;margin-top:10px">💬 Agiza WhatsApp</a>
+  <div class="topbar">
+    📱 Simu Mpya • Bei Rafiki • Zanzibar
   </div>
-</div>
-<div class="modal" id="checkoutModal" onclick="if(event.target===this)closeCheckout()">
-  <div class="modalbox">
-    <h2>🧾 Checkout — MR SMART PHONES</h2>
-    <div class="checkout-form">
-      <input id="custName" type="text" placeholder="Jina kamili" required>
-      <input id="custPhone" type="tel" placeholder="Namba ya simu" required>
-      <select id="paymentMethod">
-        <option value="">Chagua njia ya malipo</option>
-        <option>YAS / Mixx by Yas — 16559143 (Christopher Lugano)</option>
-        <option>Airtel Lipa Namba — 140001096 (Christopher Lugano)</option>
-        <option>Nitalipa dukani</option>
-      </select>
-      <div class="checkout-note">📍 Pickup: Kaliyakoo, Michezani Hall, Zanzibar. Hatutumii simu upcountry; mteja anakuja dukani.</div>
-      <button class="sendbtn" onclick="submitCheckout()">💬 Tuma Oda WhatsApp</button>
-      <button class="closebtn" onclick="closeCheckout()">Funga</button>
+
+  <header>
+    <div class="logo">
+      MR <span>SMART PHONES</span>
     </div>
-  </div>
-</div>
-<div class="modal" id="cartModal" onclick="if(event.target===this)closeCart()">
-  <div class="modalbox">
-    <h2>🛒 Oda Yako</h2>
-    <div id="cartItems"><p>Cart yako iko tupu.</p></div>
-    <h3 id="cartTotal">Jumla: TSh 0</h3>
-    
-<div class="paybox">
-  <h3>🧾 Taarifa za Mteja</h3>
-  <div class="checkout-grid">
-    <div><label>Jina Kamili</label><input id="customerName" placeholder="Mfano: Ali Hassan"></div>
-    <div><label>Namba ya Simu</label><input id="customerPhone" placeholder="07XXXXXXXX" inputmode="tel"></div>
-    <div class="checkout-full"><label>Njia ya Malipo</label>
-      <select id="paymentMethod">
-        <option value="YAS / Mixx by Yas">YAS / Mixx by Yas — 16559143</option>
-        <option value="Airtel Money">Airtel Money — 140001096</option>
-        <option value="Nitafika dukani">Nitafika dukani kulipa</option>
-      </select>
+
+    <p>
+      Simu bora na vifaa vya simu kwa bei nzuri
+    </p>
+  </header>
+
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#simu">SIMU</a>
+    <a href="#huduma">HUDUMA</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+
+  <section class="hero" id="home">
+
+    <h1>
+      KARIBU <span>MR SMART PHONES</span>
+    </h1>
+
+    <p>
+      Tunauza simu mbalimbali mpya kwa bei nzuri.
+      Pata iPhone, Samsung, Infinix, TECNO na simu nyingine
+      kutoka MR SMART PHONES.
+    </p>
+
+    <a href="#simu" class="hero-btn">
+      🛒 TAZAMA SIMU
+    </a>
+
+  </section>
+
+
+  <section class="section" id="simu">
+
+    <div class="section-title">
+      <h2>📱 SIMU ZETU</h2>
+      <p>Chagua simu unayoipenda</p>
     </div>
-    <div class="checkout-full"><label>Maelezo ya ziada (hiari)</label><input id="customerNote" placeholder="Mfano: Nataka rangi black"></div>
-  </div>
-  <button class="checkout-submit" onclick="checkoutWhatsApp()">💬 KAMILISHA ODA KWA WHATSAPP</button>
-</div>
-<div class="cart-actions">
-      <button class="closebtn" onclick="closeCart()">Funga</button><button class="checkout-btn" onclick="openCheckout()">Checkout</button>
-      <a id="sendCart" class="sendbtn" target="_blank" href="#">💬 Tuma Oda WhatsApp</a>
+
+    <div class="products">
+
+      <!-- IPHONE 15 -->
+      <div class="product">
+
+        <div class="product-img">
+          <img
+            src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15.jpg"
+            alt="iPhone 15"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <h3>iPhone 15</h3>
+
+          <div class="spec">
+            128GB • Apple
+          </div>
+
+          <div class="price">
+            TSh 1,480,500
+          </div>
+
+          <a
+            class="buy-btn"
+            href="https://wa.me/?text=Nahitaji%20iPhone%2015%20128GB"
+          >
+            💬 NUNUA WHATSAPP
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- TECNO POP 9 -->
+      <div class="product">
+
+        <div class="product-img">
+          <img
+            src="https://fdn2.gsmarena.com/vv/bigpic/tecno-pop-9.jpg"
+            alt="TECNO POP 9"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <h3>TECNO POP 9</h3>
+
+          <div class="spec">
+            3GB RAM • 64GB
+          </div>
+
+          <div class="price">
+            TSh 300,000
+          </div>
+
+          <a
+            class="buy-btn"
+            href="https://wa.me/?text=Nahitaji%20TECNO%20POP%209"
+          >
+            💬 NUNUA WHATSAPP
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- INFINIX SMART 9 -->
+      <div class="product">
+
+        <div class="product-img">
+          <img
+            src="https://fdn2.gsmarena.com/vv/bigpic/infinix-smart-9.jpg"
+            alt="Infinix Smart 9"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <h3>Infinix Smart 9</h3>
+
+          <div class="spec">
+            3GB RAM • 128GB
+          </div>
+
+          <div class="price">
+            TSh 300,000
+          </div>
+
+          <a
+            class="buy-btn"
+            href="https://wa.me/?text=Nahitaji%20Infinix%20Smart%209"
+          >
+            💬 NUNUA WHATSAPP
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- SAMSUNG A16 -->
+      <div class="product">
+
+        <div class="product-img">
+          <img
+            src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a16.jpg"
+            alt="Samsung Galaxy A16"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <h3>Samsung Galaxy A16</h3>
+
+          <div class="spec">
+            4GB RAM • 128GB
+          </div>
+
+          <div class="price">
+            TSh 400,000
+          </div>
+
+          <a
+            class="buy-btn"
+            href="https://wa.me/?text=Nahitaji%20Samsung%20Galaxy%20A16"
+          >
+            💬 NUNUA WHATSAPP
+          </a>
+
+        </div>
+      </div>
+
     </div>
-  </div>
-</div>
-<script>
-let cart=[];
-function addToCart(btn){
-  const card=btn.closest(".card");
-  const name=card.dataset.name;
-  const priceText=card.querySelector(".price").textContent;
-  const price=parseInt(priceText.replace(/[^0-9]/g,""))||0;
-  const existing=cart.find(x=>x.name===name);
-  if(existing) existing.qty++;
-  else cart.push({name,price,qty:1});
-  updateCart();
-  btn.textContent="✓ Imeongezwa";
-  setTimeout(()=>btn.textContent="🛒 Ongeza kwenye Cart",900);
-}
+  </section>
 
-function checkoutWhatsApp(){
-  if(!cart.length){alert("Tafadhali ongeza simu kwenye Cart kwanza.");return;}
-  const name=document.getElementById("customerName").value.trim();
-  const phone=document.getElementById("customerPhone").value.trim();
-  const pay=document.getElementById("paymentMethod").value;
-  const note=document.getElementById("customerNote").value.trim();
-  if(!name || !phone){alert("Tafadhali jaza jina na namba ya simu.");return;}
-  const total=cart.reduce((sum,x)=>sum+x.price*x.qty,0);
-  const items=cart.map(x=>`• ${x.name} — ${x.qty} × TSh ${x.price.toLocaleString()}`).join("\n");
-  const msg=`Habari MR SMART PHONES 👋\n\nNataka kuweka ODA.\n\nJina: ${name}\nNamba: ${phone}\n\nSimu nilizoagiza:\n${items}\n\nJumla: TSh ${total.toLocaleString()}\nNjia ya malipo: ${pay}\n${note ? "Maelezo: "+note+"\n" : ""}\n📍 Nitakuja dukani: Kaliyakoo, Michezani Hall.\n\nAsante.`;
-  const url="https://wa.me/255782895074?text="+encodeURIComponent(msg);
-  window.open(url,"_blank");
-}
-function updateCart(){
-  document.getElementById("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0);
-  let total=0;
-  const box=document.getElementById("cartItems");
-  if(!cart.length){box.innerHTML="<p>Cart yako iko tupu.</p>";}
-  else{
-    box.innerHTML=cart.map((x,i)=>{total+=x.price*x.qty;return `<div class="cartitem"><div><b>${x.name}</b><br>TSh ${x.price.toLocaleString()} × ${x.qty}</div><button onclick="removeCart(${i})">🗑️</button></div>`}).join("");
-  }
-  document.getElementById("cartTotal").textContent="Jumla: TSh "+total.toLocaleString();
-  const lines=cart.map(x=>`• ${x.name} — ${x.qty} × TSh ${x.price.toLocaleString()}`).join("%0A");
-  const totalMsg=cart.reduce((s,x)=>s+x.price*x.qty,0);
-  const message=`Habari MR SMART PHONES,%0A%0ANataka kuagiza:%0A${lines}%0A%0AJumla: TSh ${totalMsg.toLocaleString()}%0A%0ANaomba maelezo ya stock na jinsi ya kulipia.`;
-  document.getElementById("sendCart").href="https://wa.me/255782895074?text="+message;
-}
-function removeCart(i){cart.splice(i,1);updateCart();}
-function openCart(){updateCart();document.getElementById("cartModal").style.display="flex";}
-function closeCart(){document.getElementById("cartModal").style.display="none";}
-updateCart();
 
-function openCheckout(){
-  if(!cart.length){alert("Ongeza simu kwenye Cart kwanza.");return;}
-  closeCart();
-  document.getElementById("checkoutModal").style.display="flex";
-}
-function closeCheckout(){document.getElementById("checkoutModal").style.display="none";}
-function submitCheckout(){
-  const name=document.getElementById("custName").value.trim();
-  const phone=document.getElementById("custPhone").value.trim();
-  const payment=document.getElementById("paymentMethod").value;
-  if(!name||!phone||!payment){alert("Tafadhali jaza jina, namba ya simu na njia ya malipo.");return;}
-  const items=cart.map(x=>`• ${x.name} — ${x.qty} × TSh ${x.price.toLocaleString()}`).join("%0A");
-  const total=cart.reduce((sum,x)=>sum+x.price*x.qty,0);
-  const msg=`Habari MR SMART PHONES,%0A%0ANaitwa ${encodeURIComponent(name)}.%0ANamba yangu: ${encodeURIComponent(phone)}%0A%0ANataka kuagiza:%0A${items}%0A%0AJumla: TSh ${total.toLocaleString()}%0ANjia ya malipo: ${encodeURIComponent(payment)}%0A%0ANitaenda/naomba maelekezo ya kuchukua oda Kaliyakoo, Michezani Hall.`;
-  window.open("https://wa.me/255782895074?text="+msg,"_blank");
-}
+  <section class="section" id="huduma">
 
-let activeDetailCard=null;
-function openProductDetails(btn){
-  const card=btn.closest(".card");
-  activeDetailCard=card;
-  const img=card.querySelector("img");
-  const name=card.dataset.name || card.querySelector("h3")?.textContent || "Simu";
-  const price=card.querySelector(".price")?.textContent || "";
-  document.getElementById("detailImage").src=img ? img.src : "";
-  document.getElementById("detailImage").alt=name;
-  document.getElementById("detailName").textContent=name;
-  document.getElementById("detailPrice").textContent=price;
-  document.getElementById("detailAddCart").onclick=function(){addToCart(card.querySelector(".addcart"));};
-  document.getElementById("detailWhatsApp").href="https://wa.me/255782895074?text="+encodeURIComponent("Habari MR SMART PHONES, nataka kuagiza "+name+" kwa "+price+". Naomba kujua kama ipo stock.");
-  document.getElementById("productModal").style.display="flex";
-}
-function closeProductDetails(){document.getElementById("productModal").style.display="none";}
-</script>
-</body></html>
+    <div class="section-title">
+      <h2>⭐ HUDUMA ZETU</h2>
+      <p>Huduma kutoka MR SMART PHONES</p>
+    </div>
+
+    <div class="services">
+
+      <div class="service">
+        <div class="service-icon">📱</div>
+        <h3>Simu Mpya</h3>
+        <p>
+          Tunapatikana na simu mbalimbali
+          kwa bei zinazofikika.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">💰</div>
+        <h3>Bei Nzuri</h3>
+        <p>
+          Tunatoa bei rafiki kwa wateja wetu
+          wa Zanzibar na maeneo mengine.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">🤝</div>
+        <h3>Huduma Bora</h3>
+        <p>
+          Lengo letu ni kuwapa wateja huduma
+          nzuri na ya kuaminika.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="contact" id="contact">
+
+    <h2>📍 MR SMART PHONES</h2>
+
+    <p>Zanzibar, Tanzania</p>
+
+    <p>📱 Simu & Accessories</p>
+
+    <a
+      class="whatsapp"
+      href="https://wa.me/?text=Habari%20MR%20SMART%20PHONES"
+    >
+      💬 TUWASILIANE WHATSAPP
+    </a>
+
+  </section>
+
+
+  <footer>
+    © 2026 MR SMART PHONES | Zanzibar
+  </footer>
+
+</body>
+</html>
